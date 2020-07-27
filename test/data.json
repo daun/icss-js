@@ -1,0 +1,8 @@
+{
+  "map": "'{\"ten\":\"10px\", \"hundred\":\"100px\"}'",
+  "list": "'[\"a\",\"b\",\"c\"]'",
+  "namedColor": "purple",
+  "hexColor": "#333333",
+  "simpleNumber": "500",
+  "numberWithUnit": "500ms"
+}
