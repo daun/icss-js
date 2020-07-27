@@ -1,0 +1,78 @@
+/* ==========================================================================
+   ICSS-JS EXPORTS
+ * ========================================================================== */
+
+/**
+ * Export SASS data structures to JSON-encoded value we can parse from JS
+ */
+@function icss-export($value) {
+  @return json-encode($value);
+}
+
+/**
+ * JSON-encode an arbitrary variable
+ */
+@function json-encode($value) {
+  $type: type-of($value);
+  @if function-exists('json-encode-#{$type}') {
+    @return call(get-function('json-encode-#{$type}'), $value);
+  }
+  @error 'Unknown type for #{$value} (#{$type}).';
+}
+
+/**
+ * JSON-encode a map
+ */
+@function json-encode-map($map) {
+  $str: '';
+  @each $key, $value in $map {
+    $str: $str + ', ' + json-quote($key) + ':' + json-encode($value);
+  }
+  @return '{' + str-slice($str, 3) + '}';
+}
+
+/**
+ * JSON-encode a list
+ */
+@function json-encode-list($list) {
+  $str: '';
+  @each $item in $list {
+    $str: $str + ', ' + json-encode($item);
+  }
+  @return '[' + str-slice($str, 3) + ']';
+}
+
+/**
+ * JSON-encode a string
+ */
+@function json-encode-string($string) {
+  @return json-quote($string);
+}
+
+/**
+ * JSON-encode a number
+ */
+@function json-encode-number($number) {
+  @return if(unitless($number), $number, json-quote($number));
+}
+
+/**
+ * JSON-encode a color
+ */
+@function json-encode-color($color) {
+  @return json-quote($color);
+}
+
+/**
+ * JSON-encode a boolean
+ */
+@function json-encode-bool($boolean) {
+  @return $boolean;
+}
+
+/**
+ * Quote a JSON key or value
+ */
+@function json-quote($value) {
+  @return '"#{$value}"';
+}
