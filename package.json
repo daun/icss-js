@@ -26,7 +26,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/philippdaun/icss-js"
+    "url": "https://github.com/daun/icss-js"
   },
   "keywords": [
     "icss",
@@ -36,9 +36,9 @@
     "style-tokens"
   ],
   "bugs": {
-    "url": "https://github.com/philippdaun/icss-js/issues"
+    "url": "https://github.com/daun/icss-js/issues"
   },
-  "homepage": "https://github.com/philippdaun/icss-js",
+  "homepage": "https://github.com/daun/icss-js",
   "devDependencies": {
     "chai": "^4.1.2",
     "eslint": "^7.3.0",
