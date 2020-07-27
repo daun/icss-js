@@ -58,7 +58,7 @@ Import your stylesheet as a CSS module, then pass the exports into the provided
 helper function to receive a valid JS object.
 
 ```js
-import parseIcssExports from 'icss-js/css-exports'
+import parseIcssExports from 'icss-js'
 
 import cssExports from './styles/main.scss'
 
