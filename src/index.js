@@ -1,23 +1,23 @@
 /**
- * Parse a CSS module export object.
+ * Parse ICSS module export object.
  *
  * @param {Object} exportObject
  * @param {Object} options
  * @returns {Object}
  */
-export default function parseCssModuleExports(exportObject, options = {}) {
-  return map(exportObject, (value) => parseCssExport(value, options))
+export default function parseIcssExports(exportObject, options = {}) {
+  return map(exportObject, (value) => parseIcssValue(value, options))
 }
 
 /**
- * Parse a named CSS export value.
+ * Parse ICSS export value.
  *
- * @param {Object} exportValue
+ * @param {Object} exportedValue
  * @param {Object} options
  * @returns {Number|String|Array|Object}
  */
-export function parseCssExport(exportValue, { unitless = false } = {}) {
-  let value = unquote(exportValue)
+export function parseIcssValue(exportedValue, { unitless = false } = {}) {
+  let value = unquote(exportedValue)
   if (isJson(value)) {
     value = JSON.parse(value)
   } else if (/^-{0,1}\d+$/.test(value)) {
